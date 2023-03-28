@@ -1,0 +1,43 @@
+@import '/src/style/var.scss';
+
+.header_basket {
+  display: flex;
+  align-items: center;
+
+}
+
+.basket_icon {
+  position: relative;
+  align-items: center;
+  padding-right: 2rem;
+  span {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    padding: 0.2rem 0.7rem;
+
+    text-align: center;
+    border: #fff 3px solid;
+    border-radius: 50%;
+    background-color: $yellow;
+    color: #fff;
+  }
+
+}
+
+.total_price {
+  font-size: 1.2rem;
+
+}
+
+.price {
+  font-weight: 600;
+  color: #111;
+
+
+  &::after {
+    content: '₸';
+    margin-left: 0.5rem;
+  }
+}

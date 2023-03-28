@@ -1,0 +1,25 @@
+@import '/src/style/var.scss';
+
+.sb_categories {
+  margin-top: 2rem;
+}
+
+.sb_categories_titile {
+  text-transform: uppercase;
+  color: $black;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.sidebar_categories {
+  display: block;
+  margin-top: 15px;
+
+  li {
+    padding: 5px 0;
+    height: auto;
+    margin: 0;
+    text-align: start;
+    border-radius: 1px;
+  }
+}

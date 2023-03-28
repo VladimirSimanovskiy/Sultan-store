@@ -1,0 +1,31 @@
+@import "/src/style/var.scss";
+
+.btn {
+  display: inline-block;
+  vertical-align: top;
+  width: 20rem;
+  padding: 2rem 0;
+  margin: 1.7rem 0;
+
+  background-color: $yellow;
+  border-radius: 7.8rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($color: $yellow, $amount: 15%);
+  }
+}
+
+.btn_container {
+  display: flex;
+  justify-content: center;
+
+  img {
+    margin-left: 1.2rem;
+  }
+
+  p {
+    color: #fff;
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,63 @@
+@import '/src/style/var.scss';
+
+main {
+  padding: 140px 1.5rem;
+
+}
+
+.content_container {
+  display: flex;
+}
+
+.products_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  margin-left: 50px;
+
+  @media screen  and (max-width: 1400px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen  and (max-width: 1000px) {
+    grid-template-columns: repeat(1 , 1fr);
+  }
+}
+
+/*display: flex;
+flex-wrap: wrap;
+margin-left: 50px;*/
+
+.path {
+  display: flex;
+  align-items: center;
+  margin: 5rem 0;
+}
+
+.main_link {
+  padding-right: 1rem;
+
+  &:hover {
+    color: $yellow;
+  }
+}
+
+.sub_link {
+  padding-left: 1rem;
+  color: rgba($primary, 0.5);
+  border-left: 2px dashed rgba($primary, 0.5);
+
+  
+  &:hover {
+    color: $yellow;
+  }
+}
+
+@media screen and (max-width: $tablet-bp) {
+  .path {
+    display: none;
+  }
+  
+}

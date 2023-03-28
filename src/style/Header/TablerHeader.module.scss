@@ -1,0 +1,147 @@
+@import '/src/style/var.scss';
+
+.tablet_header {
+  display: none;
+  padding: 1rem 1.5rem;
+}
+
+.tablet_header_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tablet_logo {
+  max-width: 10rem;
+}
+
+.round_btn {
+  background-color: $yellow;
+  border-radius: 50%;
+  text-align: center;
+
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.burger_button {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  margin-left: 6px;
+  margin-top: 16px;
+
+  font-size: 0;
+
+  color: $white;
+
+  transform: translateY(-50%);
+
+  &::before,
+  &::after,
+  span {
+    display: block;
+    width: 60%;
+    height: 2px;
+
+    background-color: $white;
+
+    position: absolute;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    transition: transform .2s linear;
+  }
+
+  &::before {
+    top: 3px;
+  }
+
+  &::after {
+    bottom: 3px;
+  }
+
+  span {
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity .2s linear;
+  }
+
+  &.clicked {
+    span {
+      opacity: 0;
+    }
+
+    &::before,
+    &::after {
+      top: 40%;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.tablet_header_second {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px rgba($primary, 0.2) solid;
+  border-bottom: 1px rgba($primary, 0.2) solid;
+  margin-top: 1rem;
+}
+.right_container,
+.left_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem;
+  width: 50%;
+
+  img {
+    margin: 0 1rem;
+  }
+}
+
+.tablet_catalog {
+  display: flex;
+
+  p {
+    font-weight: 600;
+    font-size: 12px;
+  }
+
+  &:hover {
+    p {
+      color: $yellow;
+    }
+  }
+}
+
+.tablet_search {
+  input {
+    width: 50px;
+
+    &::placeholder {
+      font-weight: 600;
+      font-size: 12px;
+      color: $primary;
+    }
+  }
+
+}
+
+@media screen and (max-width: $tablet-bp) {
+  .tablet_header {
+    display: block;
+  }
+}

@@ -1,0 +1,73 @@
+@import '/src/style/var.scss';
+
+.tablet_menu {
+  position: fixed;
+  transform: translateX(-110%);
+  background-color: $white;
+  z-index: 1000;
+  width: 50vh;
+  padding-left: 20px;
+  transition: .2s linear;
+
+  p {
+    font-weight: 300;
+    font-size: 1.2rem;
+  }
+
+  &.active {
+    transform: translateX(0);
+  }
+}
+
+.menu_mask {
+  display: none;
+  transition: .2s linear;
+}
+
+.menu_mask.clicked {
+  display: block;
+  position: fixed;
+  margin-left: -15px;
+  z-index: 900;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(#111, 0.5);
+}
+
+.tablet_contacts {
+  padding: 20px 0 25px;
+  border-bottom: 1px rgba($primary, 0.2) dashed; 
+}
+
+.centre_icon {
+  margin-top: 10px;
+}
+
+.call_order {
+  display: flex;
+  align-items: center;
+}
+
+.menu_title {
+  margin: 35px 0 15px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+
+.tablet_nav {
+  display: block;
+  margin-left: -15px;
+}
+
+.working_hours {
+  padding-left: 35px; 
+  margin-top: -10px; 
+  margin-bottom: 18px; 
+}
+
+@media screen and (max-width: $tablet-bp) {
+  .menu_mask {
+    display: block;
+  }
+}

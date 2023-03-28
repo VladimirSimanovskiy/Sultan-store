@@ -1,0 +1,35 @@
+@import "/src/style/var.scss";
+
+.header_contacts {
+  display: flex;
+  align-items: center;
+  h4 {
+    color: #111;
+    font-weight: 600;
+  }
+  p {
+    padding: 0.5rem 0;
+    font-size: 1.2rem;
+  }
+
+  img {
+    margin-top: -1rem;
+  }
+}
+
+.call_link {
+  font-size: 1rem;
+  p {
+    text-decoration-line: underline;
+    &:hover {
+      color: $yellow;
+    }
+  }
+
+
+}
+
+.contacts {
+  margin: 0 1rem;
+  text-align: right;
+}

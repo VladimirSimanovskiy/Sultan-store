@@ -1,0 +1,26 @@
+@import "/src/style/var.scss";
+
+.adress_container {
+  display: flex;
+}
+
+.adress_item {
+  display: flex;
+  padding: 0.4rem 2.5rem 0.4rem 0;
+}
+
+.adress_name {
+  line-height: 1.8rem;
+  margin-left: 1.5rem;
+  h4 {
+    color: $black;
+    font-weight: 600;
+
+  }
+}
+
+.adress_icon {
+  width: 2rem;
+  height: 2rem;
+  margin: auto 0;
+}

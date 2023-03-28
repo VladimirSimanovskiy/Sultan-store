@@ -1,0 +1,46 @@
+@import './var.scss';
+@import './fonts.scss';
+@import './nullstyle.css';
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Inter';
+  font-size: 1.4rem;
+  color: $primary;
+  line-height: 1.8rem;
+}
+
+//Header
+@import './Header/TablerHeader.module.scss';
+@import './Header/TabletMenu.module.scss';
+@import './Header/Header.module.scss';
+@import './Header/Topline.module.scss';
+@import './Header/Adress.module.scss';
+@import './Header/Nav.module.scss';
+@import './Header/Secondline.module.scss';
+@import './Header/Headerlogo.module.scss';
+@import './Header/HeaderSearch.module.scss';
+@import './Header/HeaderContacts.module.scss';
+@import './Header/Headerbtn.module.scss';
+@import './Header/HeaderBasket.module.scss';
+@import './Header/HeaderMedia.module.scss';
+
+// Main
+@import './Main/Main.module.scss';
+@import './Main/HeaderFilter.module.scss';
+@import './Main/SorlList.module.scss';
+@import './Main/Categories.module.scss';
+@import './Main/Product.scss';
+
+//Sidebar
+@import './Main/Sidebar.module.scss';
+@import './Main/SideabarCategories.scss';
+
+
+

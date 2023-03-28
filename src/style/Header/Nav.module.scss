@@ -1,0 +1,21 @@
+@import '/src/style/var.scss';
+.topline_right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav_list {
+  display: flex;
+}
+
+.nav_link {
+  display: block;
+
+  padding: 1.2rem 1.5rem;
+
+  transition: .2s linear;
+
+  &:hover {
+    background-color: $yellow;
+  }
+}

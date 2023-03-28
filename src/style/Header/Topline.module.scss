@@ -1,0 +1,31 @@
+@import '/src/style/var.scss';
+
+.topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  max-width: 1366px;
+  margin: auto;
+}
+
+.topline_right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav_list {
+  display: flex;
+}
+
+.nav_link {
+  display: block;
+
+  padding: 1.5rem;
+
+  transition: .2s linear;
+
+  &:hover {
+    background-color: $yellow;
+  }
+}

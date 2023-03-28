@@ -1,0 +1,84 @@
+@import '/src/style/var.scss';
+
+.sidebar {
+  width: 238px;
+}
+
+.sidebar_title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-transform: uppercase;
+  color: $black;
+  margin-bottom: 10px;
+}
+
+.price_title {
+  margin-bottom: 16px;
+  font-weight: 300;
+}
+
+.price_form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price_input {
+  width: 100px;
+  background: $bg_price;
+  border-radius: 1000px;
+  padding: 4px 0;
+  text-align: center;
+}
+
+.checkbox_block {
+  margin: 10px 0;
+  padding: 20px 0;
+  border-bottom: 1px rgba($primary, 0.4) dashed;
+}
+
+.checkbox_title {
+  font-weight: 500;
+  font-size: 16px;
+  margin: 15px 0;
+  color: $black;
+}
+
+.checkbox_form {
+  position: relative;
+  margin-top: 15px;
+}
+
+.checkbox_container {
+  label {
+    display: flex;
+    align-items: center;
+    user-select: none;
+  }
+
+}
+
+.checkbox_input {
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.checkbox_span {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  border: 0.5px rgba($primary, 0.4) solid;
+  border-radius: 1px;
+  margin: 5px 10px;
+}
+
+.selected_checkbox {
+  border-color: $yellow;
+  background: $yellow;
+}

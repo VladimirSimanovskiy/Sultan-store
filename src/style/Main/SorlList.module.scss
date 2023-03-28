@@ -1,0 +1,33 @@
+@import '/src/style/var.scss';
+
+.sort_list {
+  display: none;
+
+  &.active {
+    display: block;
+    position: absolute;
+    right: -3px;
+    top: 43px;
+
+    background-color: $white;
+    border: 1px $primary solid;
+    border-radius: 3px;
+    box-shadow: 3px 3px 3px $primary;
+    transition: .2s linear;
+  
+    li {
+      padding: 3px;
+      cursor: pointer;
+      transition: .1s linear;
+  
+      &:hover {
+        background-color: $yellow;
+        border-radius: 3px;
+      }
+    }
+  }
+}
+
+.sort_selected {
+  background-color: rgba($yellow, 0.5);
+}
