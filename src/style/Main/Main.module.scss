@@ -26,9 +26,17 @@ main {
   }
 }
 
-/*display: flex;
-flex-wrap: wrap;
-margin-left: 50px;*/
+.empty_list {
+  max-width: 1228px; /// поправить
+  text-align: center;
+}
+
+.empty_title {
+  font-size: 3rem;
+  line-height: 3rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
 
 .path {
   display: flex;

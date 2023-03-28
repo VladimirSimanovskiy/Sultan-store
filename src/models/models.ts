@@ -16,3 +16,8 @@ export interface IProduser {
   id: number,
   name: string
 }
+
+export interface IPriceRange {
+  minPrice: number,
+  maxPrice: number
+}

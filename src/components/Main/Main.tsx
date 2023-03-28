@@ -4,12 +4,31 @@ import HeaderFilters from './HeaderFilters'
 import SortCategories from './SortCategories'
 import Sidebar from './Sidebar/Sidebar'
 import Product from '../Product'
+import searchPict from '../Main/icons/images.png'
 
 interface IMain {
   products_db: any[]
 }
 
 const Main = (props: IMain) => {
+
+  if (props.products_db.length === 0) {
+    return (
+      <main>
+      <Path />
+      <HeaderFilters title_name={'Косметика и гигиена'} />
+      <SortCategories />
+      <div className="content_container">
+        <Sidebar />
+        <div className="empty_list">
+          <h1 className='empty_title'>По Вашему запросу ничего не найдено</h1>
+          <img src={searchPict} alt="not_results" />
+        </div>
+
+      </div>
+    </main>
+    )
+  }
 
   return (
     <main>
@@ -35,10 +54,7 @@ const Main = (props: IMain) => {
                   type={obj.type} />
           ))}
         </div>
-
       </div>
-
-
     </main>
   )
 }

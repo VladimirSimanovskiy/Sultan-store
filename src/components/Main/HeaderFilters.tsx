@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import type { RootState } from '../../store/store'
-//import { setCategoryName } from '../../store/slices/filterSlice'
+import { setSortProperty } from '../../store/slices/filterSlice'
 
 interface IMain {
   title_name: string,
@@ -10,10 +10,9 @@ interface IMain {
 const HeaderFilters = (props: IMain) => {
 
   const dispatch = useDispatch()
-  const catergoryName = useSelector((state: RootState) => state.filterSlice.categoryName);
+  const sortProperty = useSelector((state: RootState) => state.filterSlice.sortProperty);
 
   const [sortActive, setSortActive] = useState(false);
-  const [sortSelected, setSortSelected] = useState(0);
 
   const sortList = [
                     `Название ▼`,
@@ -22,19 +21,10 @@ const HeaderFilters = (props: IMain) => {
                     `Цена ▲`,
                   ]
 
-  /*const setSortItem = (itemID: number) => {
-    setSortSelected(itemID);
-    setSortActive(false)
-  }*/
-
-  /*const onClickCategory = (sortName: string) => {
-    dispatch(setCategoryName(sortName))
-    console.log(dispatch)
-
-  }*/
-
-  //const setSortActive = () => {}
-  //const sortActive = false
+  const onClickSort = (sortName: string) => {
+    dispatch(setSortProperty(sortName))
+    setSortActive(!sortActive)
+  }
 
   return (
     <div className='header_filter'>
@@ -42,7 +32,7 @@ const HeaderFilters = (props: IMain) => {
       <div className="sort">
         <b>Сортировка:</b>
         <div onClick={() => setSortActive(!sortActive)} className="sort_arrow">
-          <span>{sortList[sortSelected]}</span>
+          <span>{sortProperty}</span>
         </div>
       </div>
 
@@ -52,8 +42,8 @@ const HeaderFilters = (props: IMain) => {
           {sortList.map((sortName, sortId) => (
             <li
               key={sortId}
-              /*onClick={() => onClickCategory(sortName)}*/
-              className={sortSelected === sortId ? "sort_selected" : ''}>
+              onClick={() => onClickSort(sortName)}
+              className={sortProperty === sortName ? "sort_selected" : ''}>
               {sortName}
             </li>
           ))}
