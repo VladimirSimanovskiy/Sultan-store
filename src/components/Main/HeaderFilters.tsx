@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import type { RootState } from '../../store/store'
 import { setSortProperty } from '../../store/slices/filterSlice'
@@ -13,6 +13,7 @@ const HeaderFilters = (props: IMain) => {
   const sortProperty = useSelector((state: RootState) => state.filterSlice.sortProperty);
 
   const [sortActive, setSortActive] = useState(false);
+  const sortRef = useRef<HTMLDivElement>(null);
 
   const sortList = [
                     `Название ▼`,
@@ -26,13 +27,30 @@ const HeaderFilters = (props: IMain) => {
     setSortActive(!sortActive)
   }
 
+  useEffect(() => {
+    const handleClickOutside = (event: { composedPath: () => any[] }) => {
+      let path: any[] = event.composedPath()
+      if (!path.includes(sortRef.current)) {
+        setSortActive(false)
+      }
+    }
+  
+    document.body.addEventListener('click', handleClickOutside)
+
+    return () => {
+      document.body.removeEventListener('click', handleClickOutside)
+    }
+  }, [])
+
+
+
   return (
     <div className='header_filter'>
       <h1 className="main_title">{props.title_name}</h1>
-      <div className="sort">
+      <div ref={sortRef} className="sort">
         <b>Сортировка:</b>
         <div onClick={() => setSortActive(!sortActive)} className="sort_arrow">
-          <span>{sortProperty}</span>
+          <p>{sortProperty}</p>
         </div>
       </div>
 

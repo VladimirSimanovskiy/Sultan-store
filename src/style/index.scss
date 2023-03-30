@@ -37,10 +37,18 @@ html {
 @import './Main/SorlList.module.scss';
 @import './Main/Categories.module.scss';
 @import './Main/Product.scss';
+@import './Main/Pagination.module.scss';
 
 //Sidebar
 @import './Main/Sidebar.module.scss';
 @import './Main/SideabarCategories.scss';
+
+//Footer
+@import './Footer/Footer.module.scss';
+
+// Basket
+@import './Basket/Basket.module.scss';
+@import './Basket/Modal.module.scss';
 
 
 

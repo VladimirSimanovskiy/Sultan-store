@@ -1,7 +1,4 @@
-import { IProduct } from "../../models/models"
 import {createSlice} from '@reduxjs/toolkit'
-import { IPriceRange } from "../../models/models"
-
 
 interface ProductState {
   categoryName: string[],
@@ -9,7 +6,7 @@ interface ProductState {
   minPrice: string,
   maxPrice: string,
   sortProperty: string,
-  searchName: string
+  searchName: string,
 }
 
 const initialState: ProductState = {
@@ -28,7 +25,7 @@ const filterSlice = createSlice({
 
     addCategoryName(state, action) {
       if (state.categoryName.includes(action.payload)) {
-        state.categoryName = state.categoryName.filter(item => item != action.payload)
+        state.categoryName = state.categoryName.filter(item => item !== action.payload)
       } else {    
         state.categoryName.push(action.payload);
       }
@@ -36,7 +33,7 @@ const filterSlice = createSlice({
 
     addProducerName(state, action) {
       if (state.producerName.includes(action.payload)) {
-        state.producerName = state.producerName.filter(item => item != action.payload)
+        state.producerName = state.producerName.filter(item => item !== action.payload)
       } else {
         state.producerName.push(action.payload);
       }
@@ -56,8 +53,9 @@ const filterSlice = createSlice({
 
     setSearchName(state, action) {
       state.searchName = action.payload;
-      console.log(state.searchName)
-    }
+      state.producerName = []
+
+    },
   }
 })
 

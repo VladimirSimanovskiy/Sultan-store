@@ -9,7 +9,7 @@ export interface IProduct {
   brand: string,
   description: string,
   price: number,
-  type: string
+  types: string[]
 }
 
 export interface IProduser {
@@ -20,4 +20,15 @@ export interface IProduser {
 export interface IPriceRange {
   minPrice: number,
   maxPrice: number
+}
+
+export interface IItemsCounter {
+  itemCount: number,
+  item: IProduct
+}
+
+export interface ISelectedItem {
+  totalPrice: number,
+  totalItems: number,
+  items: IItemsCounter[]
 }

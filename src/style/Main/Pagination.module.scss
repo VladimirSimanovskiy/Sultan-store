@@ -1,0 +1,24 @@
+.pagination_container {
+  max-width: 30%;
+  text-align: center;
+  margin: 50px auto 70px;
+
+  li {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    line-height: 0;
+    cursor: pointer;
+
+    a {
+      padding: 10px;
+    }
+  }
+}
+
+.pagination_active {
+  border-radius: 50%;
+  background-color: rgba(254, 202, 110, 0.3);
+}

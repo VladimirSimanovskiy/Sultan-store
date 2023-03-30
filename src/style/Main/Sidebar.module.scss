@@ -1,7 +1,8 @@
 @import '/src/style/var.scss';
 
 .sidebar {
-  width: 238px;
+  min-width: 238px;
+  background-color: $white;
 }
 
 .sidebar_title {

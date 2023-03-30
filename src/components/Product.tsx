@@ -2,9 +2,12 @@ import React from 'react'
 import bottle from './icons/bottle_icon.svg'
 import box from './icons/box_icon.svg'
 import basket from './Main/icons/btn_basket.svg'
+import { useDispatch } from 'react-redux'
+import { addToBasket } from '../store/slices/basketSlice'
 
 interface IProduct {
   key: number,
+  id: number,
   URL: string,
   name: string,
   size_type: string,
@@ -14,7 +17,7 @@ interface IProduct {
   brand: string,
   description: string,
   price: number,
-  type: string
+  types: string[]
 }
 
 const Product = (props: IProduct) => {
@@ -22,6 +25,9 @@ const Product = (props: IProduct) => {
   const size_icon = (props.size_type === 'вес') ? box : bottle
   const size_units = (props.size_type === 'вес') ? 'г' : 'мл'
   const price = String(props.price).replace('.', ',')
+
+  const dispatch = useDispatch()
+  
 
   return (
     <div className='product_item'>
@@ -43,21 +49,23 @@ const Product = (props: IProduct) => {
           <p className='params_value'>{props.producer}</p>
         </div>
         <div className="character_row">
-          <p className="params">Тип ухода:</p>
-          <p className='params_value'>{props.type}</p>
-        </div>
-        <div className="character_row">
           <p className="params">Брэнд:</p>
           <p className='params_value'><b className='brand character'>{props.brand}</b></p>
         </div>
+        <div className="character_row">
+          <p className="params">Тип <br/> ухода:</p>
+          <p className='params_value'>{props.types.join(', ')}</p>
+        </div>
         <div className="product_footer">
           <span className="price">{price}</span>
-          <a href="#" className='btn basket_btn'>
+          <button className='btn basket_btn'
+                  onClick={() => dispatch(addToBasket(props))}
+          >
             <div className='btn_container'>
               <p className='basket_txt'>в корзину</p>
               <img src={basket} alt="download" />
             </div>
-          </a>
+          </button>
         </div>
 
       </div>

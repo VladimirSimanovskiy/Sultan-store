@@ -4,11 +4,14 @@ import basket from './icons/basket.svg'
 import catalog from './icons/catalog_icon.svg'
 import search from './icons/search_icon.svg';
 import TabletMenu from './TabletMenu';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
 
 const TabletHeader = () => {
 
 
   const [menuActive, setMenuActive] = useState(false);
+  const totalItems = useSelector((state: RootState) => state.basketSlice.totalItems)
 
   return (
     <div className='tablet_header'>
@@ -24,7 +27,7 @@ const TabletHeader = () => {
         <img className='tablet_logo' src={logo} alt="" />
         <div className='basket_icon'>
           <img src={basket} alt="basket_icon" />
-          <span>3</span>
+          <span>{totalItems}</span>
         </div>
       </div>
 

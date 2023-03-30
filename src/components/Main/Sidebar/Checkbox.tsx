@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
 import checkIcon from './icons/check_icon.svg'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { addProducerName } from '../../../store/slices/filterSlice'
+import { RootState } from '../../../store/store'
 
 interface ICheckbox {
   producerName: string
@@ -10,12 +10,10 @@ interface ICheckbox {
 const Checkbox = (props: ICheckbox) => {
 
   const dispatch = useDispatch();
-
-  const [isChecked, setIsChecked] = useState(false)
+  const producersNames = useSelector((state: RootState) => state.filterSlice.producerName)
 
   const onClickProducer =  (producerName: string) => {
     dispatch(addProducerName(producerName.toLowerCase()));
-    return setIsChecked(!isChecked);
   }
 
   return (
@@ -26,7 +24,7 @@ const Checkbox = (props: ICheckbox) => {
           name='test'
           onChange={() => onClickProducer(props.producerName)}
       />
-      <span className={`checkbox_span ${isChecked ? 'selected_checkbox' : ''}`}
+      <span className={`checkbox_span ${producersNames.includes(props.producerName.toLowerCase()) ? 'selected_checkbox' : ''}`}
             aria-hidden='true'
       >
         <img src={checkIcon} />
