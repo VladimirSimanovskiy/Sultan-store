@@ -1,0 +1,194 @@
+@import '/src/style/var.scss';
+
+.card_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  justify-content: center;
+  align-content: center;
+  margin: 0 10px;
+}
+
+.card_img {
+  margin: 0 auto;
+}
+
+.card_porduct_characters {
+  padding: 0 20px;
+}
+
+.vailability {
+  color:  $green;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.brand {
+  &.card {
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 40px;
+  }
+}
+
+.product_name {
+  &.card {
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 40px;
+    height: auto;
+  }
+}
+
+.card_line_container {
+  display: flex;
+  margin-bottom: 40px;
+  .price {
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+
+.card_line_column {
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.counter_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.card_basket_btn {
+  margin-left: 0px;
+}
+
+.count {
+  padding: 20px;
+}
+
+.shadow_block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: $white;
+  box-shadow: 0px 15px 70px -11px rgba(43, 28, 1, 0.15);
+  border-radius: 10px;
+  padding: 20px;
+  margin-right: 10px;
+}
+
+.btn_block {
+  cursor: pointer;
+  &:hover {
+    background-color: rgba($yellow, 0.3);
+  }
+}
+
+.delivery {
+  max-width: 245px;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.btn__card_container {
+  display: flex;
+  align-items: center;
+}
+
+.btn_card_text {
+  color: $primary;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  margin-right: 17px;
+}
+
+.item_characters_container {
+  margin-bottom: 30px;
+}
+
+.characters_row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.characters_name {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 21px;
+  color: $primary;
+  margin-right: 5px;
+}
+
+.characters_value {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: $black;
+}
+
+.drop-down_container {
+  margin-bottom: 20px;
+
+  &.lower {
+    border-top: 1px dashed rgba($primary, 0.3);
+    padding-top: 20px;
+  }
+}
+
+.drop-down_title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: $black;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.drop-down_characters {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+
+@media (max-width: 1130px) {
+  .card_container {
+    grid-template-columns: 1fr;
+  }
+  
+}
+
+@media (max-width: 800px) {
+  .product_name {
+    &.card {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+
+  .brand {
+    &.card {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+
+  .card_line_container {
+    .price {
+      font-size: 22px;
+      line-height: 30px;
+    }
+  }
+}

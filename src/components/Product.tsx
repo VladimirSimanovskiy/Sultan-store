@@ -4,6 +4,7 @@ import box from './icons/box_icon.svg'
 import basket from './Main/icons/btn_basket.svg'
 import { useDispatch } from 'react-redux'
 import { addToBasket } from '../store/slices/basketSlice'
+import { useNavigate } from 'react-router-dom'
 
 interface IProduct {
   key: number,
@@ -27,6 +28,10 @@ const Product = (props: IProduct) => {
   const price = String(props.price).replace('.', ',')
 
   const dispatch = useDispatch()
+
+  const navigate = useNavigate()
+
+  const clickHandler = () => navigate(`/catalog/${props.id}`)
   
 
   return (
@@ -38,7 +43,7 @@ const Product = (props: IProduct) => {
         <img src={size_icon} alt="" className="size_icon" />
         <p className='size_value'>{props.size} {size_units}</p>
       </div>
-      <p className="product_name"><b className='brand'>{props.brand}</b> {props.name}</p>
+      <p className="product_name" onClick={clickHandler}><b className='brand'>{props.brand}</b> {props.name}</p>
       <div className="product_characters">
         <div className="character_row">
           <p className="params">Штрихкод:</p>

@@ -5,10 +5,13 @@ import grab from '../icons/delete.svg'
 import { IItemsCounter, IProduct } from '../../models/models'
 import { useDispatch } from 'react-redux'
 import { addToBasket, removeAllFromBasket, removeOneFromBasket } from '../../store/slices/basketSlice'
+import { useNavigate } from 'react-router-dom'
 
 const BasketItem = (item: IItemsCounter) => {
 
   const dispatch = useDispatch()
+
+  const navigate = useNavigate()
 
   const selectedItem = item.item
 
@@ -32,6 +35,8 @@ const BasketItem = (item: IItemsCounter) => {
     }
   }
 
+  const clickHandler = () => navigate(`/catalog/${selectedItem.id}`)
+
   return (
     <div className="selected_product">
       <div className="left_basket_flex">
@@ -42,7 +47,7 @@ const BasketItem = (item: IItemsCounter) => {
             <img src={size_icon} alt="" className="size_icon" />
             <p className='size_value'>{selectedItem.size} {size_units}</p>
           </div>
-          <p className="product_name basket"><b className='brand'>{selectedItem.brand}</b> {selectedItem.name}</p>
+          <p className="product_name basket" onClick={clickHandler}><b className='brand'>{selectedItem.brand}</b> {selectedItem.name}</p>
           <p className="product_description">{selectedItem.description}</p>
         </div>
 
