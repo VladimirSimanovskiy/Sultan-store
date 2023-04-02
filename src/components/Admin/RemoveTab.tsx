@@ -78,6 +78,7 @@ const RemoveTab = ({active}: {active: boolean}) => {
 
     // remove item from JSON
     const removeItem = (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault()
 
       setBarcode('')
       setShowCard(false)
