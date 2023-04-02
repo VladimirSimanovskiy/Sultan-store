@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from './icons/Logo.svg'
 import catalogIcon from './icons/tile.svg'
 import loupe from './icons/loupe.svg'
@@ -8,11 +8,22 @@ import basket from './icons/basket.svg'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
 import { Link } from 'react-router-dom'
+import Admin from '../../Admin/Admin'
 
 const FullscreenSecondline = () => {
 
   const totalPrice = useSelector((state: RootState) => state.basketSlice.totalPrice)
   const totalItems = useSelector((state: RootState) => state.basketSlice.totalItems)
+
+  const [showAdmin, setShowAdmin] = useState(false)
+
+  const closeAdmin = () => {
+    setShowAdmin(false)
+  }
+
+  function openAdmin() {
+    setShowAdmin(true)
+  }
 
   return (
     <div className='secondline_container'>
@@ -45,12 +56,12 @@ const FullscreenSecondline = () => {
         <img src={manager} alt="manager_img" />
       </div>
 
-      <a href="#" className='btn'>
+      <button className='btn'
+              onClick={() => openAdmin()}>
         <div className='btn_container'>
-          <p>Прайс-лист</p>
-          <img src={download} alt="download" />      
+          <p>Админ панель</p>
         </div>
-      </a>
+      </button>
 
       <div className='header_basket'>
         <Link to="/basket">
@@ -64,6 +75,8 @@ const FullscreenSecondline = () => {
           </div>
         </Link>
       </div>
+
+      <Admin active={showAdmin} onClose={closeAdmin} />
 
     </div>
   )

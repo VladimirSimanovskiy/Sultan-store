@@ -6,6 +6,7 @@ import search from './icons/search_icon.svg';
 import TabletMenu from './TabletMenu';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/store';
+import { Link } from 'react-router-dom';
 
 const TabletHeader = () => {
 
@@ -25,18 +26,18 @@ const TabletHeader = () => {
           </button>
         </div>
         <img className='tablet_logo' src={logo} alt="" />
-        <div className='basket_icon'>
+        <Link className='basket_icon' to='/basket'>
           <img src={basket} alt="basket_icon" />
           <span>{totalItems}</span>
-        </div>
+        </Link>
       </div>
 
       <div className='tablet_header_second'>
         <div className="right_container">
-          <a className='tablet_catalog' href="#catalog">
+          <Link className='tablet_catalog' to='/'>
            <img src={catalog} alt="catalog icon" />
            <p>Каталог</p>
-          </a>
+          </Link>
         </div>
         <div className='left_container'>
           <form className='tablet_search' action="/" method='get'>

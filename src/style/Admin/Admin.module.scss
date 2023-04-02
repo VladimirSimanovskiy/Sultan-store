@@ -1,0 +1,58 @@
+@import '/src/style/var.scss';
+
+.admin_container {
+  width: 800px;
+  max-height: 80%;
+  background-color: $white;
+  border: 1px $white solid;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px;
+  overflow-y: scroll;
+}
+
+.admin_title {
+  font-size: 26px;
+  font-weight: 700;
+  color: $black;
+  margin-bottom: 40px;
+}
+
+.nav_container {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px dashed rgba($primary, 0.3);
+}
+
+.admin_nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.admin_btn {
+  padding: 10px 20px;
+  border: 1px solid rgba($primary, 0.5);
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: $black;
+  transition: .1s linear;
+
+  &.active_tab {
+    background: $yellow;
+    color: $white;
+    border-color: $white;
+  }
+}
+
+.tab_container {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}

@@ -3,7 +3,7 @@ import geo from "./icons/geo.svg";
 import mail from "./icons/mail.svg";
 import phone from './icons/phone_icon.svg';
 import whitePhone from './icons/carbon_phone-filled.svg'
-import download from './icons/download.svg'
+import Admin from '../../Admin/Admin';
 
 interface Tablet {
   active: boolean,
@@ -11,6 +11,17 @@ interface Tablet {
 }
 
 const TabletMenu = ({active, setActive}: Tablet) => {
+
+  const [showAdmin, setShowAdmin] = useState(false)
+
+  const closeAdmin = () => {
+    setShowAdmin(false)
+  }
+
+  function openAdmin() {
+    setShowAdmin(true)
+  }
+  
   return (
     <div className={active ? 'menu_mask clicked' : 'menu_mask'}
          onClick={() => setActive(false)}>
@@ -68,13 +79,15 @@ const TabletMenu = ({active, setActive}: Tablet) => {
             </ul>
           </nav>
 
-          <a href="#" className='btn'>
-            <div className='btn_container'>
-              <p>Прайс-лист</p>
-              <img src={download} alt="download" />      
+          <button className='btn'>
+            <div className='btn_container'
+                 onClick={() => openAdmin()}>
+              <p>Админ панель</p>
             </div>
-          </a>
+          </button>
       </div>
+
+      <Admin active={showAdmin} onClose={closeAdmin} />
     </div>
 
   )

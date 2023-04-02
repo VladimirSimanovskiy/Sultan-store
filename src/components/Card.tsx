@@ -37,8 +37,21 @@ const Card = () => {
   const itemFromBasket = basketItems.find(item => item.item.id === itemID)
 
  
-  const products = JSONproducts.products
-  const itemFromCatalog = products.filter(item => item.id === itemID)[0]
+  let products: any = []
+
+  for(let key in localStorage) {
+    if (!localStorage.hasOwnProperty(key)) {
+      continue;
+    }
+
+    const item = localStorage.getItem(key)
+
+    if (typeof item === 'string') {
+      products.push(JSON.parse(item))
+    }
+  }
+
+  const itemFromCatalog = products.filter((item: { id: number }) => item.id === itemID)[0]
 
 
   const props = {

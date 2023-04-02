@@ -54,7 +54,7 @@ const Basket = () => {
         <div className="basket_products_container">
           {
             selectedItems.map((obj) => (
-              <BasketItem {...obj} /> 
+              <BasketItem {...obj} key={obj.item.id}/> 
           ))}
         </div>
 

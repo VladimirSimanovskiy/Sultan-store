@@ -34,7 +34,7 @@ const DropDownCharacters = ({item}: {item: IProduct}) => {
           </div>
 
           <div className="characters_row">
-            <p className="characters_name">Брэнд:</p>
+            <p className="characters_name">Бренд:</p>
             <p className="characters_value">{item.brand}</p>
           </div>
 

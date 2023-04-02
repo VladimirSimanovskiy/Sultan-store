@@ -16,7 +16,24 @@ export default function MainPage() {
   const maxPrice = useSelector((state: RootState) => state.filterSlice.maxPrice)
   const searchProducer = useSelector((state: RootState) => state.filterSlice.searchName)
 
-  const products = JsonProducts.products
+  if (localStorage.length === 0) {
+    JsonProducts.products.forEach(item => localStorage.setItem(item.barcode.toString(), JSON.stringify(item)))
+  }
+
+
+  let products: any = []
+
+  for(let key in localStorage) {
+    if (!localStorage.hasOwnProperty(key)) {
+      continue;
+    }
+
+    const item = localStorage.getItem(key)
+
+    if (typeof item === 'string') {
+      products.push(JSON.parse(item))
+    }
+  }
 
   function filterForCategories(productItem: IProduct) {
     for (let item of productItem.types) {
@@ -27,7 +44,7 @@ export default function MainPage() {
 
   let productsList: IProduct[] = (categoriesName.length === 0) 
                                     ? products
-                                    : products.filter(item => filterForCategories(item))
+                                    : products.filter((item: IProduct) => filterForCategories(item))
 
                               
   if (!searchProducer) {
