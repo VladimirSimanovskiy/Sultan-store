@@ -1,7 +1,7 @@
 {
   "name": "sultan",
   "version": "0.1.0",
-  "homepage": "https://VladimirSimanovskiy.github.io/Sultan",
+  "homepage": "https://VladimirSimanovskiy.github.io/Sultan-store",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
