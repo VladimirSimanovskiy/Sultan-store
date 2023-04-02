@@ -37,7 +37,7 @@ const Product = (props: IProduct) => {
   return (
     <div className='product_item'>
       <div className="product_img">
-        <img src={`..${props.URL}`} alt="product_img" />
+        <img src={props.URL} alt="product_img" />
       </div>
       <div className="product_size">
         <img src={size_icon} alt="" className="size_icon" />
