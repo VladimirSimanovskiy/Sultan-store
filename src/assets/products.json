@@ -2,7 +2,7 @@
   "products": [
     {
       "id": 1,
-      "URL": "/img/product_1.jpg",
+      "URL": "./img/product_1.jpg",
       "name": "крем для рук",
       "size_type": "объем",
       "size": 60,
@@ -15,7 +15,7 @@
     },
     {
       "id": 2,
-      "URL": "/img/product_2.jpg",
+      "URL": "./img/product_2.jpg",
       "name": "крем для рук",
       "size_type": "объем",
       "size": 40,

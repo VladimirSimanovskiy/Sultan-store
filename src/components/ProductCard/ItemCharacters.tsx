@@ -3,7 +3,6 @@ import { IProduct } from '../../models/models'
 
 const ItemCharacters = ({item}: {item: IProduct}) => {
 
-  console.log(item)
   return (
     <div className='item_characters_container'>
 
