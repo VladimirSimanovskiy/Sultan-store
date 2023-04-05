@@ -42,6 +42,10 @@
   }
 }
 
+.tablet {
+  display: none;
+}
+
 .card_line_container {
   display: flex;
   margin-bottom: 40px;
@@ -50,6 +54,14 @@
     font-size: 30px;
     line-height: 40px;
   }
+}
+
+.tablet {
+  display: none;
+}
+
+.gap {
+  column-gap: 25px;
 }
 
 .card_line_column {
@@ -159,36 +171,5 @@
 
   &.active {
     display: block;
-  }
-}
-
-
-@media (max-width: 1130px) {
-  .card_container {
-    grid-template-columns: 1fr;
-  }
-  
-}
-
-@media (max-width: 800px) {
-  .product_name {
-    &.card {
-      font-size: 20px;
-      line-height: 30px;
-    }
-  }
-
-  .brand {
-    &.card {
-      font-size: 20px;
-      line-height: 30px;
-    }
-  }
-
-  .card_line_container {
-    .price {
-      font-size: 22px;
-      line-height: 30px;
-    }
   }
 }

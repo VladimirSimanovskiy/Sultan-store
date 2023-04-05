@@ -240,28 +240,31 @@ const EditTab = ({active}: {active: boolean}) => {
           <div className="input_container">
             <h2 className="input_title">Размер</h2>
             <div className="input_line">
-              <p className='input_subtitle'>Тип размера:</p>
-              <select
-                className='input_select'
-                value={sizeType} 
-                onChange={(event) => setSizeType(event.target.value)}>
-                  <option value="объем">Объем</option>
-                  <option value="вес">Вес</option>
-              </select>
+                <p className='input_subtitle'>Тип размера:</p>
+                <select
+                  className='input_select'
+                  value={sizeType} 
+                  onChange={(event) => setSizeType(event.target.value)}>
+                    <option value="объем">Объем</option>
+                    <option value="вес">Вес</option>
+                </select>
+              </div>
+
+              <div className="input_line">
               <p className='input_subtitle'>Размер:</p>
-              <input 
-                type="tel" 
-                className={invalidSize ? "number_input invalid" : "number_input"}
-                placeholder='Размер...'
-                value={size}
-                maxLength={5}
-                onFocus={(event) => {
-                  setValid(event, setInvalidSize)
-                  setSize('')
-                }}
-                onBlur={(event) => isValid(event, setInvalidSize)}
-                onChange={(event) => !invalidSize ? setSize(handleNumberInput(event.target.value)) : ''}/>
-            </div>
+                <input 
+                  type="tel" 
+                  className={invalidSize ? "number_input invalid" : "number_input"}
+                  placeholder='Размер...'
+                  value={size}
+                  maxLength={5}
+                  onFocus={(event) => {
+                    setValid(event, setInvalidSize)
+                    setSize('')
+                  }}
+                  onBlur={(event) => isValid(event, setInvalidSize)}
+                  onChange={(event) => !invalidSize ? setSize(handleNumberInput(event.target.value)) : ''}/>
+              </div>
           </div>
     
           <div className="input_container">

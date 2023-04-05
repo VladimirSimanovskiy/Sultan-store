@@ -22,8 +22,7 @@ const Modal = ({ active , onClose }: PropsWithChildren<IModalProps> ) => {
         <div className="modal_footer">
           <Link to='/'>
             <button className='btn'
-                    onClick={onClose}
-            >
+                    onClick={() => onClose}>
               <div className="btn_container">
                 <p>Перейти в каталог</p> 
               </div>

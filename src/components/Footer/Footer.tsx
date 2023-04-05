@@ -13,7 +13,16 @@ const Footer = () => {
       <div className="footer_container">
 
         <div className="logo_column">
-          <img src={footerLogo} alt="footer_logo" />
+          <div className="footer_header">
+            <img className='footer_logo' src={footerLogo} alt="footer_logo" />
+            <button className='btn mobile_btn'>
+              <div className='btn_container'>
+                <p>Прайс-лист</p>
+                <img src={download} alt="download" />
+              </div>
+            </button>
+          </div>
+
           <p className='logo_column_text'>Компания «Султан» — снабжаем розничные магазины товарами "под ключ" в Кокчетаве и Акмолинской области</p>
           <form className='subscribe_form' action="/">
             <p className='subscribe_title'>Подпишись на скидки и акции</p>
@@ -86,6 +95,14 @@ const Footer = () => {
             <div className='social_media'>
               <img className='social_media_logo' src={visa} alt="visa_logo" />
               <img src={masterCrad} alt="masterCard_logo" />
+            </div>
+          </div>
+
+          <div className="footer_contacts_column grid_column mobile_social">
+            <p>Связь в мессенджерах:</p>
+            <div className="social_media">
+              <img className='social_media_logo' src={whatsApp} alt=" whatsApp_logo" />
+              <img className='social_media_logo' src={telegram} alt=" telegram_logo" />
             </div>
           </div>
 

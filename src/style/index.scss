@@ -24,12 +24,10 @@ html {
 @import './Header/Adress.module.scss';
 @import './Header/Nav.module.scss';
 @import './Header/Secondline.module.scss';
-@import './Header/Headerlogo.module.scss';
 @import './Header/HeaderSearch.module.scss';
 @import './Header/HeaderContacts.module.scss';
 @import './Header/Headerbtn.module.scss';
 @import './Header/HeaderBasket.module.scss';
-@import './Header/HeaderMedia.module.scss';
 
 // Main
 @import './Main/Main.module.scss';
@@ -38,6 +36,7 @@ html {
 @import './Main/Categories.module.scss';
 @import './Main/Product.scss';
 @import './Main/Pagination.module.scss';
+@import './Main/Path.module.scss';
 
 //Sidebar
 @import './Main/Sidebar.module.scss';
@@ -56,6 +55,9 @@ html {
 // Admin
 @import './Admin/Admin.module.scss';
 @import './Admin/Tab.module.scss';
+
+// Media
+@import './Media.module.scss';
 
 
 

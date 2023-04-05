@@ -31,7 +31,10 @@ const Product = (props: IProduct) => {
 
   const navigate = useNavigate()
 
-  const clickHandler = () => navigate(`/catalog/${props.id}`)
+  const clickHandler = () => {
+    navigate(`/catalog/${props.id}`)
+    window.scrollTo(0, 0)
+  }
   
 
   return (

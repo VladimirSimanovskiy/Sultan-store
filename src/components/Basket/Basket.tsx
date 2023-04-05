@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+// states
 import { useSelector, useDispatch } from 'react-redux'
 import { clearBasket } from '../../store/slices/basketSlice'
+import { setShowBasketModal } from '../../store/slices/modalSlice'
+
+// components
 import Path from '../Path'
 import BasketItem from './BasketItem'
 import { RootState } from '../../store/store'
@@ -16,15 +19,11 @@ const Basket = () => {
   const selectedItems = useSelector((state: RootState) => state.basketSlice.items)
   const totalPrice = useSelector((state: RootState) => state.basketSlice.totalPrice)
   const totalItems = useSelector((state: RootState) => state.basketSlice.totalItems)
-
-  const [showModal, setShowModal] = useState(false)
-
-  const closeModal = () => {
-    setShowModal(false)
-  }
+  const showModal = useSelector((state: RootState) => state.modalSlice.showBasketModal)
 
   function checkout() {
-    setShowModal(true)
+    window.scrollTo(0, 0)
+    dispatch(setShowBasketModal())
     dispatch(clearBasket())
   }
 
@@ -32,7 +31,6 @@ const Basket = () => {
     sectionName: 'Корзина',
   }
 
-  
   return (
     <main>
       <Path props={props} />
@@ -69,7 +67,7 @@ const Basket = () => {
           <p className="basket_total_price">{totalPrice.toFixed(2)} ₸</p>
         </div>
       </div>
-      <Modal active={showModal} onClose={closeModal}/>
+      <Modal active={showModal} onClose={() => dispatch(setShowBasketModal())}/>
     </main>
   )
 }

@@ -1,29 +1,26 @@
-import React, { useState } from 'react'
+// images
 import logo from './icons/Logo.svg'
 import catalogIcon from './icons/tile.svg'
 import loupe from './icons/loupe.svg'
-import download from './icons/download.svg'
 import manager from './icons/manager.svg'
 import basket from './icons/basket.svg'
-import { useSelector } from 'react-redux'
+
+// states
+import { toggleAdmin } from '../../../store/slices/modalSlice'
+import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../../../store/store'
-import { Link } from 'react-router-dom'
+
+// components
 import Admin from '../../Admin/Admin'
+import { Link } from 'react-router-dom'
 
 const FullscreenSecondline = () => {
 
   const totalPrice = useSelector((state: RootState) => state.basketSlice.totalPrice)
   const totalItems = useSelector((state: RootState) => state.basketSlice.totalItems)
+  const showAdmin = useSelector((state: RootState) => state.modalSlice.showAdmin)
 
-  const [showAdmin, setShowAdmin] = useState(false)
-
-  const closeAdmin = () => {
-    setShowAdmin(false)
-  }
-
-  function openAdmin() {
-    setShowAdmin(true)
-  }
+  const dispatch = useDispatch()
 
   return (
     <div className='secondline_container'>
@@ -33,7 +30,8 @@ const FullscreenSecondline = () => {
         </a>
       </div>
 
-      <Link to="/" className='btn'>
+      <Link to="/" className='btn'
+            onClick={() => window.scrollTo(0, 0)}>
         <div className='btn_container'>
           <p>Каталог</p>
           <img src={catalogIcon} alt="catalog" />      
@@ -57,14 +55,15 @@ const FullscreenSecondline = () => {
       </div>
 
       <button className='btn'
-              onClick={() => openAdmin()}>
+              onClick={() => dispatch(toggleAdmin())}>
         <div className='btn_container'>
           <p>Админ панель</p>
         </div>
       </button>
 
       <div className='header_basket'>
-        <Link to="/basket">
+        <Link to="/basket"
+              onClick={() => window.scrollTo(0, 0)}>
           <div className='basket_icon'>
             <img src={basket} alt="basket_icon" />
             <span>{totalItems}</span>
@@ -76,7 +75,7 @@ const FullscreenSecondline = () => {
         </Link>
       </div>
 
-      <Admin active={showAdmin} onClose={closeAdmin} />
+      <Admin active={showAdmin} onClose={() => dispatch(toggleAdmin())} />
 
     </div>
   )

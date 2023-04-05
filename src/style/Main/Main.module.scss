@@ -1,7 +1,7 @@
 @import '/src/style/var.scss';
 
 main {
-  padding: 140px 0 1.5rem;
+  padding: 140px 20px 1.5rem;
 }
 
 .main_container {
@@ -22,20 +22,8 @@ main {
   grid-row-gap: 20px;
 }
 
-@media screen and (max-width: 1300px) {
-  .products_container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  .products_container {
-    grid-template-columns: 1fr;
-  }
-}
-
 .empty_list {
-  max-width: 1228px; /// поправить
+  max-width: 1228px;
   text-align: center;
 }
 
@@ -46,34 +34,3 @@ main {
   font-style: italic;
 }
 
-.path {
-  display: flex;
-  align-items: center;
-  margin: 5rem 10px;
-}
-
-.main_link {
-  padding-right: 1rem;
-
-  &:hover {
-    color: $yellow;
-  }
-}
-
-.sub_link {
-  padding-left: 1rem;
-  color: rgba($primary, 0.5);
-  border-left: 2px dashed rgba($primary, 0.5);
-
-  
-  &:hover {
-    color: $yellow;
-  }
-}
-
-@media screen and (max-width: $tablet-bp) {
-  .path {
-    display: none;
-  }
-  
-}

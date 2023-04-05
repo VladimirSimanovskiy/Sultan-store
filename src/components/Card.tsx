@@ -1,8 +1,5 @@
 import React from 'react'
 
-// DB
-import JSONproducts from '../assets/products.json'
-
 // components
 import Path from './Path'
 import ItemCharacters from './ProductCard/ItemCharacters'
@@ -115,7 +112,7 @@ const Card = () => {
               </button>
             </div>
 
-            <div className="card_line_column">
+            <div className="card_line_column fullscreen">
               <button className='btn basket_btn card_basket_btn'
                       onClick={() => dispatch(addToBasket(itemFromCatalog))}
               >
@@ -128,7 +125,7 @@ const Card = () => {
 
         </div>
 
-        <div className="card_line_container">
+        <div className="card_line_container fullscreen">
 
           <div className="shadow_block btn_block">
             <img src={share} alt="share_icon" />
@@ -147,6 +144,37 @@ const Card = () => {
           </div>
 
         </div>
+
+        <div className="card_line_container tablet gap">
+          <button className='btn basket_btn card_basket_btn'
+                  onClick={() => dispatch(addToBasket(itemFromCatalog))}
+          >
+            <div className='btn_container'>
+              <p className='basket_txt'>в корзину</p>
+              <img src={basket} alt="download" />
+             </div>
+          </button>
+
+          <div className="btn_block">
+            <img src={share} alt="share_icon" />
+          </div>
+        </div>
+
+        <div className="card_line_container tablet">
+          <div className="shadow_block">
+            <p className='delivery'>При покупке от <b>10 000 ₸</b> бесплатная доставка по Кокчетаву и области</p>
+          </div>
+        </div>
+
+        <div className="card_line_container tablet">
+          <div className="shadow_block btn_block">
+            <div className="btn__card_container">
+              <p className='btn_card_text'>Прайс-лист</p>
+              <img src={download} alt="download_icon" />
+            </div>
+          </div>
+        </div>
+
         <ItemCharacters item={itemFromCatalog} />
         <DropDownCharacters item={itemFromCatalog} />
         </div>

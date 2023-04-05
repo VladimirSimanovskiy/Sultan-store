@@ -1,8 +1,17 @@
 import React, { useState } from 'react'
+
+// images
 import geo from "./icons/geo.svg";
 import mail from "./icons/mail.svg";
 import phone from './icons/phone_icon.svg';
 import whitePhone from './icons/carbon_phone-filled.svg'
+
+// states
+import { toggleAdmin } from '../../../store/slices/modalSlice'
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState } from '../../../store/store'
+
+// components
 import Admin from '../../Admin/Admin';
 
 interface Tablet {
@@ -12,16 +21,10 @@ interface Tablet {
 
 const TabletMenu = ({active, setActive}: Tablet) => {
 
-  const [showAdmin, setShowAdmin] = useState(false)
+  const showAdmin = useSelector((state: RootState) => state.modalSlice.showAdmin)
 
-  const closeAdmin = () => {
-    setShowAdmin(false)
-  }
+  const dispatch = useDispatch()
 
-  function openAdmin() {
-    setShowAdmin(true)
-  }
-  
   return (
     <div className={active ? 'menu_mask clicked' : 'menu_mask'}
          onClick={() => setActive(false)}>
@@ -81,13 +84,13 @@ const TabletMenu = ({active, setActive}: Tablet) => {
 
           <button className='btn'>
             <div className='btn_container'
-                 onClick={() => openAdmin()}>
+                 onClick={() => dispatch(toggleAdmin())}>
               <p>Админ панель</p>
             </div>
           </button>
       </div>
 
-      <Admin active={showAdmin} onClose={closeAdmin} />
+      <Admin active={showAdmin} onClose={() => dispatch(toggleAdmin())} />
     </div>
 
   )

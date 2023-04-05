@@ -26,7 +26,9 @@ const TabletHeader = () => {
           </button>
         </div>
         <img className='tablet_logo' src={logo} alt="" />
-        <Link className='basket_icon' to='/basket'>
+        <Link className='basket_icon' 
+              to='/basket'
+              onClick={() => window.scrollTo(0, 0)}>
           <img src={basket} alt="basket_icon" />
           <span>{totalItems}</span>
         </Link>

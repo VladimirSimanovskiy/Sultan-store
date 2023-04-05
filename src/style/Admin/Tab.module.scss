@@ -37,13 +37,21 @@
 .input_line {
   display: flex;
   align-items: center;
+  margin: 10px 0;
+}
+
+.input_flex {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 50%;
 }
 
 .input_select {
   border: 1px $primary solid;
-  border-radius: 5px;
+  border-radius: 9px;
   padding: 10px 5px;
-  margin-right: 20px;
+  width: 100%;
 
   &.barcode_select {
     width: 100%;

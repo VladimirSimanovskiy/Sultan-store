@@ -16,15 +16,8 @@
   line-height: 4rem;
 }
 
-@media (max-width: 1000px) {
-  .main_title {
-    font-size: 30px;
-  }
-}
-
 .sort {
   display: flex;
-  //column-gap: 0.5rem;
   b {
     color: $black;
     margin-right: 0.5rem;

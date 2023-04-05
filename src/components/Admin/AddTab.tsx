@@ -231,6 +231,9 @@ const AddTab = ({active}: {active: boolean}) => {
                 <option value="объем">Объем</option>
                 <option value="вес">Вес</option>
             </select>
+            </div>
+
+            <div className="input_line">
             <p className='input_subtitle'>Размер:</p>
             <input 
               type="tel" 
