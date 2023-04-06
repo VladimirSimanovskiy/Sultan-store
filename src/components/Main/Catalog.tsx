@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import HeaderFilters from './HeaderFilters'
+import HeaderFilters from './MainTitle'
 import SortCategories from './SortCategories'
 import Sidebar from './Sidebar/Sidebar'
 import Product from '../Product'
@@ -9,6 +9,7 @@ import previous from '../icons/previous.svg'
 import next from '../icons/next.svg'
 import { IProduct } from '../../models/models'
 import Path from '../Path'
+import MainTitle from './MainTitle'
 
 interface IMain {
   products_db: IProduct[]
@@ -77,7 +78,7 @@ const Main = (props: IMain) => {
   return (
     <main>
       <Path props={propsObj}/>
-      <HeaderFilters title_name={'Косметика и гигиена'} />
+      <MainTitle title_name={'Косметика и гигиена'} />
       <SortCategories />
       <div className="main_container">
         <Sidebar />

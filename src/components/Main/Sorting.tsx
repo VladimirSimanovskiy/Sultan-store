@@ -3,24 +3,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import type { RootState } from '../../store/store'
 import { setSortProperty } from '../../store/slices/filterSlice'
 
-interface IMain {
-  title_name: string,
-}
-
-const HeaderFilters = (props: IMain) => {
+const Sorting = ({sortList}: {sortList: string[]}) => {
 
   const dispatch = useDispatch()
   const sortProperty = useSelector((state: RootState) => state.filterSlice.sortProperty);
 
   const [sortActive, setSortActive] = useState(false);
   const sortRef = useRef<HTMLDivElement>(null);
-
-  const sortList = [
-                    `Название ▼`,
-                    `Название ▲`,
-                    `Цена ▼`,
-                    `Цена ▲`,
-                  ]
 
   const onClickSort = (sortName: string) => {
     dispatch(setSortProperty(sortName))
@@ -42,11 +31,8 @@ const HeaderFilters = (props: IMain) => {
     }
   }, [])
 
-
-
   return (
-    <div className='header_filter'>
-      <h1 className="main_title">{props.title_name}</h1>
+    <>
       <div ref={sortRef} className="sort">
         <b>Сортировка:</b>
         <div onClick={() => setSortActive(!sortActive)} className="sort_arrow">
@@ -67,8 +53,8 @@ const HeaderFilters = (props: IMain) => {
           ))}
         </ul>
       </div>
-    </div>
+    </>
   )
 }
 
-export default HeaderFilters
+export default Sorting

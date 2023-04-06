@@ -146,8 +146,21 @@
   .categories {
     display: none;
   }
+
   .sort {
     display: none;
+  }
+
+  .sidebar_sort {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    .sort {
+      display: flex;
+    }
+    .sort_list.active {
+      top: 23px;
+    }
   }
 
   .main_title {

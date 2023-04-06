@@ -23,7 +23,7 @@ const Path = ({props}: {props: ILink}) => {
       <>
         <div className="path">
           <Link to='/' className='main_link'>Главная</Link>
-          <a className='sub_link'>{props.sectionName}</a>
+          <a href='/#' className='sub_link'>{props.sectionName}</a>
         </div>
 
         <div className="mobile_back">
@@ -49,7 +49,7 @@ const Path = ({props}: {props: ILink}) => {
         { props.pathName &&
           <Link className='main_link' to={props.linkName}>{props.pathName}</Link>
         }
-        <a className='sub_link'>{props.sectionName}</a>
+        <a href='/#' className='sub_link'>{props.sectionName}</a>
       </div>
 
       <div className="mobile_back">

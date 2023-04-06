@@ -25,9 +25,9 @@ const FullscreenSecondline = () => {
   return (
     <div className='secondline_container'>
       <div className='headerlogo'>
-        <a href="/" className='headerlogo_link'>
+        <Link to="/" className='headerlogo_link'>
           <img src={logo} alt="Logo" />
-        </a>
+        </Link>
       </div>
 
       <Link to="/" className='btn'
@@ -49,7 +49,7 @@ const FullscreenSecondline = () => {
         <div className='contacts'>
           <h4>+7 (777) 490-00-91</h4>
           <p>время работы: 9:00-20:00</p>
-          <a className='call_link' href="#"><p>Заказать звонок</p></a>
+          <a href='/#' className='call_link'><p>Заказать звонок</p></a>
         </div>
         <img src={manager} alt="manager_img" />
       </div>
