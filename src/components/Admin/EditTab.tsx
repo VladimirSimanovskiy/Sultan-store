@@ -7,24 +7,13 @@ import { MultiSelect } from 'react-multi-select-component';
 import { isValidPrice } from '../../functions/isValidPrice';
 import { isValidURL } from '../../functions/isValidURL';
 import { handleNumberInput } from '../../functions/handleNumberInput';
+import { getLocalStorageItems } from '../../functions/getLocalStorageItems';
 
 const EditTab = ({active}: {active: boolean}) => {
 
-  const products: any = []
+  const products: IProduct[]  = getLocalStorageItems()
 
-  for(let key in localStorage) {
-    if (!localStorage.hasOwnProperty(key)) {
-      continue;
-    }
-
-    const item = localStorage.getItem(key)
-
-    if (typeof item === 'string') {
-      products.push(JSON.parse(item))
-    }
-  }
-
-  const barcodesList: number[] = products.map((item: IProduct) => item.barcode.toString())
+  const barcodesList: string[] = products.map((item: IProduct) => item.barcode.toString())
 
     // Valides states
     const [invalidName, setInvalidName] = useState(false)
@@ -179,7 +168,7 @@ const EditTab = ({active}: {active: boolean}) => {
           onChange={(event) =>  getLocalStorageItem(event.target.value)}>
             <option key='start' value=''></option>
             {
-              barcodesList.map((itemBarcode: number) => (<option key={itemBarcode} value={itemBarcode}>{itemBarcode}</option>)
+              barcodesList.map((itemBarcode: string) => (<option key={itemBarcode} value={itemBarcode}>{itemBarcode}</option>)
             )
             }
         </select>
@@ -187,7 +176,8 @@ const EditTab = ({active}: {active: boolean}) => {
 
       {barcode !== '' &&
       <>
-          <div className="input_container">
+          <div 
+              className="input_container">
             <h2 className="input_title">Название товара</h2>
             <input 
               type="text" 

@@ -31,7 +31,7 @@ const basketSlice = createSlice({
       state.totalPrice -= action.payload.price
       state.totalItems -= 1
 
-      state.items.map(item => {
+      state.items.map((item) => {
         if (item.item.id === action.payload.id) {
           item.itemCount -= 1
         }

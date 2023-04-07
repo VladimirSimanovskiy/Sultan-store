@@ -7,6 +7,9 @@ import { RootState } from '../store/store'
 import { IProduct } from '../models/models'
 import { productsListSort } from '../functions/productsListSort'
 
+// functions
+import { getLocalStorageItems } from '../functions/getLocalStorageItems'
+
 export default function MainPage() {
 
   const categoriesName = useSelector((state: RootState) => state.filterSlice.categoryName)
@@ -21,19 +24,7 @@ export default function MainPage() {
   }
 
 
-  let products: any = []
-
-  for(let key in localStorage) {
-    if (!localStorage.hasOwnProperty(key)) {
-      continue;
-    }
-
-    const item = localStorage.getItem(key)
-
-    if (typeof item === 'string') {
-      products.push(JSON.parse(item))
-    }
-  }
+  let products: IProduct[] = getLocalStorageItems()
 
   function filterForCategories(productItem: IProduct) {
     for (let item of productItem.types) {
@@ -60,7 +51,7 @@ export default function MainPage() {
   const sortedProducts = productsListSort(productsList, sortProperty)
 
   return (
-    <div>
+    <div data-testid='catalog'>
       <Header />
       <Catalog products_db={sortedProducts} />
       <Footer />

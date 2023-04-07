@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Category from './Category';
 
-const SortCategories = () => {
+const FilterCategories = () => {
 
   const categories: string[] = [
                       'Уход за телом',
@@ -31,4 +31,4 @@ const SortCategories = () => {
   )
 }
 
-export default SortCategories
+export default FilterCategories

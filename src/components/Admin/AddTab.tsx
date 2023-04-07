@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import TextareaAutosize from 'react-textarea-autosize';
-import Select from 'react-select/dist/declarations/src/Select';
 import { MultiSelect } from 'react-multi-select-component';
 
 // Functions
@@ -31,17 +30,6 @@ const AddTab = ({active}: {active: boolean}) => {
   const [price, setPrice] = useState('')
   const [description, setDescription] = useState('')
   const [types, setTypes] = useState([])
-
-  const characters = [
-    [name, setInvalidName],
-    [brand, setInvalidBrand],
-    [producer, setInvalidProducer],
-    [URL, setInvalidURL],
-    [size, setInvalidSize],
-    [barcode, setInvalidBarcode],
-    [price, setInvalidPrice],
-    [description, setInvalidDescription]
-  ]
 
   // Types array
   type SelectValue = { value: string; label: string; }

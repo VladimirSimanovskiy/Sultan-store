@@ -15,12 +15,13 @@ const Modal = ({ active , onClose }: PropsWithChildren<IModalProps> ) => {
     <div className='modal'
          onClick={onClose}
     >
-      <div className="modal_content">
+      <div className="modal_content"
+           data-testid='modal_content'>
         <div className="modal_header">
           <h1 className="modal_title">Спасибо за заказ</h1>
         </div>
         <div className="modal_footer">
-          <Link to='/'>
+          <Link to='/' data-testid='catalog_link'>
             <button className='btn'
                     onClick={() => onClose}>
               <div className="btn_container">

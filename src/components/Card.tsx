@@ -7,6 +7,9 @@ import DropDownCharacters from './ProductCard/DropDownCharacters'
 
 //react
 import { useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../store/store'
+import { addToBasket, removeOneFromBasket, removeAllFromBasket } from '../store/slices/basketSlice'
 
 //icons
 import box from './icons/box_icon.svg'
@@ -15,13 +18,11 @@ import basket from './Main/icons/btn_basket.svg'
 import share from './icons/ci_share.svg'
 import download from './icons/download_grey.svg'
 
-//react
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '../store/store'
-import { addToBasket, removeOneFromBasket, removeAllFromBasket } from '../store/slices/basketSlice'
+// functions
+import { getLocalStorageItems } from '../functions/getLocalStorageItems'
 
 // interfaces
-import { IProduct, IItemsCounter } from '../models/models'
+import { IProduct } from '../models/models'
 
 const Card = () => {
 
@@ -33,23 +34,9 @@ const Card = () => {
   const basketItems = useSelector((state: RootState) => state.basketSlice.items)
   const itemFromBasket = basketItems.find(item => item.item.id === itemID)
 
- 
-  let products: any = []
-
-  for(let key in localStorage) {
-    if (!localStorage.hasOwnProperty(key)) {
-      continue;
-    }
-
-    const item = localStorage.getItem(key)
-
-    if (typeof item === 'string') {
-      products.push(JSON.parse(item))
-    }
-  }
+  let products: IProduct[] = getLocalStorageItems()
 
   const itemFromCatalog = products.filter((item: { id: number }) => item.id === itemID)[0]
-
 
   const props = {
     sectionName: itemFromCatalog.name,

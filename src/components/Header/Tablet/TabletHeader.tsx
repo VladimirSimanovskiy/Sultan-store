@@ -18,7 +18,7 @@ const TabletHeader = () => {
     <div className='tablet_header'>
       <div className='tablet_header_top'>
         <div className='round_btn'>
-          <button id="burger_button" 
+          <button id="burger_button"
                   className={menuActive ? 'burger_button clicked' : 'burger_button'} 
                   type="button" 
                   onClick={() => setMenuActive(!menuActive)}>

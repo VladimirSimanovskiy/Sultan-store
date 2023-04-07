@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import HeaderFilters from './MainTitle'
-import SortCategories from './SortCategories'
+import SortCategories from './FilterCategories'
 import Sidebar from './Sidebar/Sidebar'
 import Product from '../Product'
 import ReactPaginate from 'react-paginate'

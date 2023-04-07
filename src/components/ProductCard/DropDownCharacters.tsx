@@ -10,22 +10,30 @@ const DropDownCharacters = ({item}: {item: IProduct}) => {
     <>
       <div className='drop-down_container'>
         <h1 className="drop-down_title"
+            data-testid='description_title'
             onClick={() => setActiveDescription(!activeDescription)}
         >
           Описание {activeDescription ? '▲' : '▼'}
         </h1>
-        <div className={activeDescription ? "drop-down_characters active" : "drop-down_characters"}>
-          <p className="drop-down_description">{item.description}</p>
-        </div>
+        {activeDescription &&
+            <div className={"drop-down_characters active"}
+                data-testid='test_description'>
+            <p className="drop-down_description">{item.description}</p>
+          </div>
+        }
+
       </div>
 
       <div className='drop-down_container lower'>
         <h1 className="drop-down_title"
+            data-testid='characters_title'
             onClick={() => setActiveCharacters(!activeCharacters)}
         >
           Характеристики {activeCharacters ? '▲' : '▼'}
         </h1>
-        <div className={activeCharacters ? "drop-down_characters active" : "drop-down_characters"}>
+        {activeCharacters &&
+          <div className={"drop-down_characters active"}
+          data-testid='test_characters'>
           <div className='item_characters_container'>
 
           <div className="characters_row">
@@ -55,6 +63,8 @@ const DropDownCharacters = ({item}: {item: IProduct}) => {
 
           </div>
         </div>
+        }
+
       </div>
     </>
 

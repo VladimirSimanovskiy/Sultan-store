@@ -1,28 +1,14 @@
 import React, { useState } from 'react'
 import { IProduct } from '../../models/models';
-import TextareaAutosize from 'react-textarea-autosize';
-import { MultiSelect } from 'react-multi-select-component';
 
 // functions
-import { handleNumberInput } from '../../functions/handleNumberInput';
+import { getLocalStorageItems } from '../../functions/getLocalStorageItems';
 
 const RemoveTab = ({active}: {active: boolean}) => {
 
-  const products: any = []
+  const products: IProduct[] = getLocalStorageItems()
 
-  for(let key in localStorage) {
-    if (!localStorage.hasOwnProperty(key)) {
-      continue;
-    }
-
-    const item = localStorage.getItem(key)
-
-    if (typeof item === 'string') {
-      products.push(JSON.parse(item))
-    }
-  }
-
-  const barcodesList: number[] = products.map((item: IProduct) => item.barcode.toString())
+  const barcodesList: string[] = products.map((item: IProduct) => item.barcode.toString())
 
   
     // Values states
@@ -46,7 +32,6 @@ const RemoveTab = ({active}: {active: boolean}) => {
     // get item to localStorage
     let item: IProduct
     let localStorageItem 
-    let size_units
 
     const getItem = (value: string) => {
       if (value === '') setShowCard(false)
@@ -104,13 +89,13 @@ const RemoveTab = ({active}: {active: boolean}) => {
           onChange={(event) =>  getItem(event.target.value)}>
             <option key='start' value=''></option>
             {
-              barcodesList.map((itemBarcode: number) => (<option key={itemBarcode} value={itemBarcode}>{itemBarcode}</option>)
+              barcodesList.map((itemBarcode: string) => (<option key={itemBarcode} value={itemBarcode}>{itemBarcode}</option>)
             )
             }
         </select>
       </div>
 
-      {showCard &&
+      {showCard &&  
       <>
           <div className="card_container">
             <img className='card_img remove' src={URL} alt="product_img" />
