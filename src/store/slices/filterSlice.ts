@@ -55,7 +55,7 @@ const filterSlice = createSlice({
       state.searchName = action.payload;
       state.producerName = []
 
-    },
+    }
   }
 })
 
